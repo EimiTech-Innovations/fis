@@ -10,10 +10,10 @@ import about3 from '../assets/about3.svg'
 export const AboutUs: React.FC = () => {
   return (
     <>
-      <div id='about' className='flex flex-col items-center px-4 py-8 bg-cover border md:flex-row md:py-16 bg-heroBg md:px-8 lg:px-16'>
+      <div id='about' className='flex flex-col items-center h-screen px-4 py-8 bg-cover border md:flex-row md:py-16 bg-heroBg md:px-8 lg:px-16'>
         {/* Left side - Images */}
         <div className='flex items-center justify-center gap-4 mb-8 md:gap-6 md:w-1/2 md:mb-0'>
-          <div className="flex flex-col gap-4 border border-red-400 md:gap-6">
+          <div className="flex flex-col gap-4 md:gap-6">
             <img className="object-cover w-48 h-48 rounded-lg shadow-lg md:w-60 md:h-60" src={about1} alt="about picture 1" />
             <img className="object-cover w-48 h-48 rounded-lg shadow-lg md:w-60 md:h-60" src={about3} alt="about picture 3" />
           </div>
