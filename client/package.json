@@ -14,12 +14,14 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.24.0"
+    "react-router-dom": "^6.24.0",
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.1.0",
     "@eslint/js": "^9.4.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
@@ -28,7 +30,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.12.8",
-    "eslint": "9.x",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.0",
