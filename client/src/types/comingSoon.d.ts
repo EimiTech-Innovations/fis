@@ -1,3 +1,3 @@
 export interface componentTitle {
-    title: string
+  title: string;
 }

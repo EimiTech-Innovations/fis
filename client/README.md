@@ -9,6 +9,7 @@
 ![DaisyUI](https://img.shields.io/badge/DaisyUI-1AD1A5?style=for-the-badge&logo=DaisyUI)
 
 This repository contains code and resources dedicated to the development and maintenance of the frontend component of the Eimi Tech innovations web-app. For UI design, we are adapting [EimiTech-Innovations figma design](https://www.figma.com/design/LG35XoVwlRfcw7n4JtbnZx/EIMITECH?node-id=0-1&t=EOC7L757nVGZZSfo-1)
+
 </div>
 
 ## 🚀 Getting Started
@@ -24,25 +25,31 @@ Before you start, ensure you have the following installed:
 - [Yarn](https://yarnpkg.com/)
 
 ### Fork the repository
- 
+
 1. Navigate to the [repository](https://github.com/EimiTech-Innovations/EimiTech-webpage/tree/main/client) on GitHub.
 
 1. Click the "Fork" button in the upper right corner of the page.
 1. Clone your fork to your local machine:
+
 ```
 git clone https://github.com/EimiTech-Innovations/EimiTech-webpage.git
 cd EimiTech-webpage/client
 ```
-### Install Dependencies - install the required dependencies using yarn 
+
+### Install Dependencies - install the required dependencies using yarn
+
 ```dotnetcli
-yarn install 
+yarn install
 ```
-### Start the Development Server - to see your changes live 
+
+### Start the Development Server - to see your changes live
+
 ```
-yarn dev 
+yarn dev
 ```
 
 ## Project Structure
+
 ```
 client/
 
@@ -70,7 +77,9 @@ client/
 ```
 
 ## 🛠️ How to Contribute
+
 ### Reporting Bugs
+
 If you find a bug, please report it by opening an issue. Make sure to include:
 
 - A clear and descriptive title.
@@ -78,35 +87,40 @@ If you find a bug, please report it by opening an issue. Make sure to include:
 - Steps to reproduce the issue.
 - Any relevant screenshots or code snippets.
 
-
 ### Suggesting Enhancements
+
 To suggest a new feature or enhancement, open an issue with:
 
 - A clear and descriptive title.
 - A detailed description of the proposed enhancement.
 - Any additional context or examples.
 
+### Submitting Pull Requests
 
-###  Submitting Pull Requests 
 1. Create a branch: Branch off from main for your work
-``` 
+
+```
 git checkout -b feat/your-feature-name
 ```
-2. Make your changes: Implement your features or bug fix 
+
+2. Make your changes: Implement your features or bug fix
 3. Commit your changes: Write a clear and concise commit message
 
 ```
 git add .
 git commit -m "add feature or fix description"
 ```
+
 4. Push to your fork
+
 ```
 git push origin feature/your-feature-name
 ```
 
 5. Open a Pull request: Go to the original repository on GitHub and open a pull request from your fork
 
-## Code Review Process 
+## Code Review Process
+
 All submissions, including pull requests, will undergo a code review. We expect your code to meet the following criteria:
 
 - Readability: Ensure your code is easy to read and understand.
@@ -120,8 +134,8 @@ Please note that this project is released with a [Contributor Code of Conduct](h
 ## 📞 Contact Us
 
 Have questions? Feel free to reach out to us:
-- **Email**: eimitechinnovations@gmail.com
 
+- **Email**: eimitechinnovations@gmail.com
 
 <!-- ## ⭐ Acknowledgements
 

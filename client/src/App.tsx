@@ -10,9 +10,8 @@ const App: React.FC = () => {
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
-
     </>
-  )
-}
+  );
+};
 
 export default App;
