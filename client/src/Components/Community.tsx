@@ -1,30 +1,32 @@
-import React from 'react';
 import globe_image from '../assets/globe.svg';
 
 const Community = () => {
   return (
-    <div className="flex justify-center items-center py-20 px-4 md:px-10" style={{ background: 'linear-gradient(-90deg, #79E3DD 0%, rgba(121, 227, 221, 0.2) 50%)' }}>
-      <div className="relative h-[400px] md:h-[500px] lg:h-[700px] w-full max-w-screen-xl flex flex-col lg:flex-row gap-8">
-        
-        {/* Globe Image Section */}
-        <div className="w-full lg:w-1/2 h-full relative">
-          <img src={globe_image} alt="Globe" className="w-full h-full object-contain" />
-          <div className="absolute top-0 right-0 w-1/4 h-full"></div>
-        </div>
+    <div style={{ background: 'linear-gradient(-90deg,rgba(175, 245, 242, 0.856)  30%,  #fdffff 80%)' }}>
+      <div className="container flex items-center justify-center py-20 mx-auto " >
+        <div className="flex flex-col items-center justify-center gap-10 lg:flex-row">
 
-        {/* Text Content Section */}
-        <div className="w-full lg:w-2/5 flex flex-col justify-center items-start p-4 md:p-8 text-center lg:text-left">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-black">Join our community</h2>
-          <p className="text-sm md:text-base lg:text-lg mb-6 lg:mb-8 text-black">
-            Engage with like-minded individuals, access valuable resources, and participate in enriching discussions aimed at fostering learning, growth, and collaboration.
-          </p>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Join now
-          </button>
+          {/* Globe Image Section */}
+          <div className="">
+            <img src={globe_image} alt="Globe" className="object-contain w-full h-full" />
+
+          </div>
+
+          {/* Text Content Section */}
+          <div className="flex flex-col items-center justify-center w-full p-4 text-center md:items-start lg:w-2/5 md:p-8 lg:text-left">
+            <h3 className="mb-4 text-2xl font-bold">Join our community</h3>
+            <p className="mb-6 text-sm md:text-base lg:mb-8">
+              Engage with like-minded individuals, access valuable resources, and participate in enriching discussions aimed at fostering learning, growth, and collaboration.
+            </p>
+            <a href='https://chat.whatsapp.com/GBagnJfknP9DkeoVvswezZ' target='__blank' className="px-4 py-2 font-bold rounded text-bgText bg-btnBg hover:bg-btnHover">
+              Join now
+            </a>
+          </div>
+
         </div>
-        
       </div>
     </div>
+
   );
 };
 
