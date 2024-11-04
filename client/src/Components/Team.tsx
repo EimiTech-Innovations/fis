@@ -6,7 +6,7 @@ import profileIcon3 from "../assets/profile3.png"
 const Team: React.FC = () => {
   return (
     <div className="container mx-auto">
-      <div className="flex flex-col w-4/5 gap-10 py-24 mx-auto md:flex-row place-content-center">
+      <div className="flex flex-col w-4/5 gap-10 py-24 mx-auto lg:py-32 md:flex-row place-content-center">
         <div className="md:w-1/2 place-content-center">
           <h3 className="text-2xl font-bold"> Meet the Team</h3>
           <p>

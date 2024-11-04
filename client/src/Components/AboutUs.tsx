@@ -11,7 +11,7 @@ export const AboutUs: React.FC = () => {
       <div className="container mx-auto">
         <div
           id="about"
-          className="flex flex-col items-center justify-center mx-auto lg:gap-40 md:gap-5 py-14 md:py-24 md:flex-row"
+          className="flex flex-col items-center justify-center mx-auto lg:gap-40 md:gap-5 py-14 lg:py-32 md:py-24 md:flex-row"
         >
           {/* Left side - Images */}
           <div className="flex items-center gap-4 py-10 md:py-0 md:gap-2 lg:gap-14">
