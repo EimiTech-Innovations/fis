@@ -1,8 +1,10 @@
 import React from "react";
 import eimiTechLogo from "../assets/main-logo.svg";
+
 const Nav: React.FC = () => {
   return (
-    <div className="shadow-md navbar bg-base-100">
+
+    <div className="container mx-auto navbar bg-base-100 ">
       <div className="navbar-start">
         <a href="/" className="text-xl font-medium ">
           <img src={eimiTechLogo} alt="Eimi Tech Innovation" />
@@ -10,7 +12,7 @@ const Nav: React.FC = () => {
       </div>
       <div className="hidden navbar-center lg:flex">
         {/* TODO:active  */}
-        <ul className="px-1 menu menu-horizontal">
+        <ul className=" menu menu-horizontal">
           <li>
             <a href="#mission"> Mission</a>
           </li>
@@ -23,10 +25,10 @@ const Nav: React.FC = () => {
         </ul>
       </div>
       <div className="gap-3 navbar-end">
-        <a className="rounded-sm btn bg-btnBg text-bgText w-30 hover:bg-btnHover">
+        <a className="rounded-md btn btn-sm bg-btnBg text-bgText w-30 hover:bg-btnHover">
           Contact Us
         </a>
-        <a className="rounded-sm w-30 btn bg-btnBg text-bgText hover:bg-btnHover">
+        <a className="rounded-md w-30 btn btn-sm bg-btnBg text-bgText hover:bg-btnHover">
           Join us...
         </a>
       </div>
@@ -67,6 +69,8 @@ const Nav: React.FC = () => {
         </ul>
       </div>
     </div>
+
+
   );
 };
 
