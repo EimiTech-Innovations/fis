@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --quit --fix",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "pc": "yarn lint --fix && yarn format",
     "prepare": "husky"
   },
