@@ -5,7 +5,7 @@ import transformDigital from "../assets/transform.svg";
 
 const Mission: React.FC = () => {
   return (
-    <div id="mission" className="h-screen text-center place-content-center ">
+    <div id="mission" className="text-center md:h-screen place-content-center ">
       <h2 className="text-3xl font-bold"> Mission</h2>
       {/* TODO:Quote should be dynamic */}
       <p> &quot;Technology is best when it brings people together&quot;</p>
