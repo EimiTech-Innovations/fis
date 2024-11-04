@@ -1,16 +1,29 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
-import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
-import { fixupConfigRules } from "@eslint/compat";
+import pluginReact from "eslint-plugin-react";
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
   {
-    files: ["**/*.jsx"],
-    languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    languageOptions: {
+      globals: globals.browser,
+    },
+    extends: [
+      "next/core-web-vitals",
+      "airbnb",
+      "airbnb-typescript",
+      "airbnb/hooks",
+      "prettier",
+    ],
+    plugins: {
+      "eslint-plugin-js": pluginJs.configs.recommended,
+      "typescript-eslint": tseslint.configs.recommended,
+      react: pluginReact.configs.flat.recommended,
+    },
+    rules: {
+      // You can add custom rules here
+    },
   },
-  ...fixupConfigRules(pluginReactConfig),
 ];

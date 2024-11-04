@@ -11,7 +11,6 @@ import { Work } from "../Components/Work";
 import { ContactUs } from "../Components/ContactUs";
 import Footer from "../Components/Footer";
 
-
 const Home: React.FC = () => {
   return (
     <div>

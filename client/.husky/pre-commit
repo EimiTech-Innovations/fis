@@ -1,2 +1,1 @@
-yarn pc 
-yarn test
+npm run format
