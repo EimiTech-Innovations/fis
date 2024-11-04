@@ -18,9 +18,8 @@ const HeroSection: React.FC = () => {
             solutions, and transforms the digital landscape through strategic
             insights.
           </p>
-          <button className="relative w-40 pr-10 rounded-sm group btn bg-btnBg text-bgText hover:bg-btnHover">
-            {" "}
-            Learn More{" "}
+          <a href="#mission" className="relative w-40 pr-10 rounded-sm group btn bg-btnBg text-bgText hover:bg-btnHover">
+            Learn More
             <span className="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +36,7 @@ const HeroSection: React.FC = () => {
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </div>
         <img
           src={heroImage}
