@@ -10,7 +10,7 @@ export const AboutUs: React.FC = () => {
     <>
       <div
         id="about"
-        className="flex flex-col items-center h-screen px-4 py-8 bg-cover border md:flex-row md:py-16 bg-heroBg md:px-8 lg:px-16"
+        className="flex flex-col items-center px-4 py-8 bg-cover border md:h-screen md:flex-row md:py-16 md:px-8 lg:px-16"
       >
         {/* Left side - Images */}
         <div className="flex items-center justify-center gap-4 mb-8 md:gap-6 md:w-1/2 md:mb-0">
