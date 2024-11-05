@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
-import NotFound from "./Components/NotFound";
-import { ContactUs } from "./Components/ContactUs";
-import Nav from "./Components/Nav";
-import Footer from "./Components/Footer";
-import Mission from "./Components/Mission";
-import { Work } from "./Components/Work";
-import { AboutUs } from "./Components/AboutUs";
-import Community from "./Components/Community";
+import NotFound from "./Components/UI/NotFound";
+import { ContactUs } from "./Components/UI/ContactUs";
+import Nav from "./Components/UI/Nav";
+import Footer from "./Components/UI/Footer";
+import Mission from "./Components/UI/Mission";
+import { Work } from "./Components/UI/Work";
+import { AboutUs } from "./Components/UI/AboutUs";
+import Community from "./Components/UI/Community";
 import Login from "./Pages/user/Login";
 import Signup from "./Pages/user/Signup";
 const App: React.FC = () => {
@@ -24,7 +24,6 @@ const App: React.FC = () => {
         <Route path="/community" element={<Community />} />
 
         {/* User */}
-
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/*" element={<NotFound />} />

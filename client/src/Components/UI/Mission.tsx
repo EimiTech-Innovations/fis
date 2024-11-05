@@ -1,12 +1,15 @@
 import React from "react";
-import innovateLives from "../assets/innovate-lives.svg";
-import promoteInnovation from "../assets/promote-innovation.svg";
-import transformDigital from "../assets/transform.svg";
+import innovateLives from "../../assets/innovate-lives.svg";
+import promoteInnovation from "../../assets/promote-innovation.svg";
+import transformDigital from "../../assets/transform.svg";
 
 
 const Mission: React.FC = () => {
   return (
     <div className="container mx-auto">
+      <div>
+
+      </div>
       <div id="mission" className="py-10 text-center md:py-20 ">
         <h2 className="text-3xl font-bold"> Mission</h2>
         {/* TODO:Quote should be dynamic */}

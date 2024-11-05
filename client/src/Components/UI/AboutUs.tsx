@@ -1,8 +1,8 @@
 import React from "react";
 
-import about1 from "../assets/continuousLearning.svg";
-import about2 from "../assets/workshop.svg";
-import about3 from "../assets/itSolution.svg";
+import about1 from "../../assets/continuousLearning.svg";
+import about2 from "../../assets/workshop.svg";
+import about3 from "../../assets/itSolution.svg";
 // import ComingSoon from './ComingSoon'
 
 export const AboutUs: React.FC = () => {

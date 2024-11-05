@@ -1,5 +1,5 @@
 import React from "react";
-import telephone from "../assets/telephone.svg"
+import telephone from "../../assets/telephone.svg"
 import { Link } from "react-router-dom";
 
 

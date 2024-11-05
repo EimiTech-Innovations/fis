@@ -1,5 +1,5 @@
 import React from "react";
-import eimiTechLogo from "../assets/main-logo.svg";
+import eimiTechLogo from "../../assets/main-logo.svg";
 import { Link } from "react-router-dom";
 
 const Nav: React.FC = () => {
