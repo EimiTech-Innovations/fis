@@ -14,13 +14,13 @@ const Nav: React.FC = () => {
         {/* TODO:active  */}
         <ul className=" menu menu-horizontal">
           <li>
-            <a href="#mission"> Mission</a>
+            <a className="hover:underline decoration-bgText " href="#mission"> Mission</a>
           </li>
           <li>
-            <a href="#services"> Services </a>
+            <a className="hover:underline decoration-bgText" href="#services"> Services </a>
           </li>
           <li>
-            <a href="#about"> About </a>
+            <a className="hover:underline decoration-bgText" href="#about"> About </a>
           </li>
         </ul>
       </div>
@@ -28,7 +28,7 @@ const Nav: React.FC = () => {
         <a className="rounded-md btn btn-sm bg-btnBg text-bgText w-30 hover:bg-btnHover">
           Contact Us
         </a>
-        <a className="rounded-md w-30 btn btn-sm bg-btnBg text-bgText hover:bg-btnHover">
+        <a href="#community" className="rounded-md w-30 btn btn-sm bg-btnBg text-bgText hover:bg-btnHover">
           Join us...
         </a>
       </div>

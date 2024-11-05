@@ -7,7 +7,9 @@ export default {
       backgroundImage: {
         heroBg: "url('./assets/hero-bg.png')",
       },
-
+      animation: {
+        "spin-slow": "spin 60s linear infinite",
+      },
       height: {
         heroHeight: "500px",
       },

@@ -2,13 +2,13 @@ import globe_image from '../assets/globe.svg';
 
 const Community = () => {
   return (
-    <div style={{ background: 'linear-gradient(-90deg,rgba(175, 245, 242, 0.856)  30%,  #fdffff 80%)' }}>
+    <div id='community' style={{ background: 'linear-gradient(-90deg,rgba(175, 214, 245, 0.384)  30%,  #fdffff 80%)' }}>
       <div className="container flex items-center justify-center py-20 mx-auto " >
         <div className="flex flex-col items-center justify-center gap-10 lg:flex-row">
 
           {/* Globe Image Section */}
           <div className="">
-            <img src={globe_image} alt="Globe" className="object-contain w-full h-full" />
+            <img src={globe_image} alt="Globe" className="object-contain w-full h-full animate-spin-slow" />
 
           </div>
 
