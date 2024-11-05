@@ -1,5 +1,6 @@
 import React from "react";
 import telephone from "../assets/telephone.svg"
+import { Link } from "react-router-dom";
 
 
 export const ContactUs: React.FC = () => {
@@ -23,8 +24,10 @@ export const ContactUs: React.FC = () => {
               <label htmlFor="message" className="text-sm leading-7 text-gray-600">Message</label>
               <textarea id="message" name="message" className="w-full h-32 px-3 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"></textarea>
             </div>
-            <button className="px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">Submit </button>
-            <p className="mt-3 text-xs text-gray-500"> We will get back to you as soon as possible</p>
+            <button className="px-6 py-2 text-lg border-0 rounded bg-btnBg text-bgText hover:bg-btnHover focus:outline-none">Submit </button>
+            <p className="mt-3 text-xs "> We will get back to you as soon as possible,
+              <Link to={"/login"} className="text-bgText "> Click here to Register/Login</Link>
+            </p>
           </div>
         </div>
       </section>
