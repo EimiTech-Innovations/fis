@@ -1,4 +1,4 @@
-import globe_image from '../assets/globe.svg';
+import globe_image from '../../assets/globe.svg';
 
 const Community = () => {
   return (

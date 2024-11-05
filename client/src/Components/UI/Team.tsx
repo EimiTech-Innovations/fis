@@ -1,7 +1,7 @@
 import React from "react";
-import profileIcon from "../assets/profile.png"
-import profileIcon2 from "../assets/profile2.png"
-import profileIcon3 from "../assets/profile3.png"
+import profileIcon from "../../assets/profile.png"
+import profileIcon2 from "../../assets/profile2.png"
+import profileIcon3 from "../../assets/profile3.png"
 
 const Team: React.FC = () => {
   return (

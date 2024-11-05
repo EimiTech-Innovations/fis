@@ -1,5 +1,5 @@
 import React from "react";
-import working from "../assets/working.svg"
+import working from "../../assets/working.svg"
 
 export const Work: React.FC = () => {
   return (

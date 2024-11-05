@@ -1,6 +1,6 @@
 import React from "react";
 import image from "../assets/comingsoon.svg";
-import { componentTitle } from "../types/comingSoon";
+import { componentTitle } from "../../types/comingSoon";
 
 const ComingSoon: React.FC<componentTitle> = ({ title }) => {
   return (

@@ -1,36 +1,37 @@
 import React from "react";
-import eimiTechLogo from "../assets/main-logo.svg";
+import eimiTechLogo from "../../assets/main-logo.svg";
+import { Link } from "react-router-dom";
 
 const Nav: React.FC = () => {
   return (
 
     <div className="container mx-auto navbar bg-base-100 ">
       <div className="navbar-start">
-        <a href="/" className="text-xl font-medium ">
+        <Link to={"/"} className="text-xl font-medium ">
           <img src={eimiTechLogo} alt="Eimi Tech Innovation" />
-        </a>
+        </Link>
       </div>
       <div className="hidden navbar-center lg:flex">
         {/* TODO:active  */}
         <ul className=" menu menu-horizontal">
           <li>
-            <a className="hover:underline decoration-bgText " href="#mission"> Mission</a>
+            <Link className="hover:underline decoration-bgText " to={"/mission"}> Mission</Link>
           </li>
           <li>
-            <a className="hover:underline decoration-bgText" href="#services"> Services </a>
+            <Link className="hover:underline decoration-bgText" to={"/services"}> Services </Link>
           </li>
           <li>
-            <a className="hover:underline decoration-bgText" href="#about"> About </a>
+            <Link className="hover:underline decoration-bgText" to={"/about"}> About </Link>
           </li>
         </ul>
       </div>
       <div className="gap-3 navbar-end">
-        <a className="rounded-md btn btn-sm bg-btnBg text-bgText w-30 hover:bg-btnHover">
+        <Link to={'/contact'} className="rounded-md btn btn-sm bg-btnBg text-bgText w-30 hover:bg-btnHover">
           Contact Us
-        </a>
-        <a href="#community" className="rounded-md w-30 btn btn-sm bg-btnBg text-bgText hover:bg-btnHover">
+        </Link>
+        <Link to={"/community"} className="rounded-md w-30 btn btn-sm bg-btnBg text-bgText hover:bg-btnHover">
           Join us...
-        </a>
+        </Link>
       </div>
 
       <div className="dropdown">
