@@ -20,7 +20,7 @@ const HeroSection: React.FC = () => {
               solutions, and transforms the digital landscape through strategic
               insights.
             </p>
-            <a href="#mission" className="relative w-40 pr-10 rounded-sm group btn bg-btnBg text-bgText hover:bg-btnHover">
+            <a href="#mission" className="relative w-40 pr-10 rounded-md group btn bg-btnBg text-bgText hover:bg-btnHover">
               Learn More
               <span className="">
                 <svg
@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
             src={heroImage}
             alt="hero image"
             width={500}
-            className="w-[350px] md:w-[450px]"
+            className="w-[350px] md:w-[450px] "
           />
         </div>
       </div>
