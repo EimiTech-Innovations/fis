@@ -13,6 +13,8 @@ import Login from "./Pages/user/Login";
 import Signup from "./Pages/user/Signup";
 import CookiePolicy from "./Pages/legal/CookiePolicy";
 import CookieConsents from "./Pages/legal/CookieConsents";
+import PrivacyPolicy from "./Pages/legal/PrivacyPolicy";
+import TermsCondition from "./Pages/legal/TermsCondition";
 
 
 
@@ -35,6 +37,8 @@ const App: React.FC = () => {
 
         {/* Legal */}
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsCondition />} />
 
       </Routes>
       <CookieConsents />
