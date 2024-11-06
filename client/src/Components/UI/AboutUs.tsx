@@ -2,10 +2,15 @@ import about1 from "../../assets/continuousLearning.svg";
 import about2 from "../../assets/workshop.svg";
 import about3 from "../../assets/itSolution.svg";
 import { Link, Location, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export const AboutUs: React.FC = () => {
   const location: Location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
 
   return (
