@@ -29,7 +29,8 @@ const Mission: React.FC = () => {
       <div className="container mx-auto">
 
         <div id="mission" className="py-10 text-center md:py-20 ">
-          <h2 className="text-3xl font-bold"> Mission</h2>
+          {location.pathname != "/mission" && <h2 className="text-3xl font-bold"> Mission</h2>}
+
           {/* TODO:Quote should be dynamic */}
           <p> &quot;Technology is best when it brings people together&quot;</p>
           <em> ~ Matt Mullenweg, Founder of WordPress </em>
