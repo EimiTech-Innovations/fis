@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import telephone from "../../assets/telephone.svg"
 import { Link, Location, useLocation } from "react-router-dom";
 
 
 export const ContactUs: React.FC = () => {
   const location: Location = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>
