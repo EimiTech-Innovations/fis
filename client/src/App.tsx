@@ -11,6 +11,13 @@ import { AboutUs } from "./Components/UI/AboutUs";
 import Community from "./Components/UI/Community";
 import Login from "./Pages/user/Login";
 import Signup from "./Pages/user/Signup";
+import CookiePolicy from "./Pages/legal/CookiePolicy";
+import CookieConsents from "./Pages/legal/CookieConsents";
+import PrivacyPolicy from "./Pages/legal/PrivacyPolicy";
+import TermsCondition from "./Pages/legal/TermsCondition";
+
+
+
 const App: React.FC = () => {
   return (
     <>
@@ -27,7 +34,14 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/*" element={<NotFound />} />
+
+        {/* Legal */}
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsCondition />} />
+
       </Routes>
+      <CookieConsents />
       <Footer />
     </>
   );
