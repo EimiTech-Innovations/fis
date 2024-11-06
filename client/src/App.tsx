@@ -11,6 +11,11 @@ import { AboutUs } from "./Components/UI/AboutUs";
 import Community from "./Components/UI/Community";
 import Login from "./Pages/user/Login";
 import Signup from "./Pages/user/Signup";
+import CookiePolicy from "./Pages/legal/CookiePolicy";
+import CookieConsents from "./Pages/legal/CookieConsents";
+
+
+
 const App: React.FC = () => {
   return (
     <>
@@ -27,7 +32,12 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/*" element={<NotFound />} />
+
+        {/* Legal */}
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+
       </Routes>
+      <CookieConsents />
       <Footer />
     </>
   );

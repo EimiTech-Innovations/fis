@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export const Footer: React.FC = () => {
   return (
     <footer className="p-10 text-gray-600 bg-gray-100 rounded footer footer-center body-font">
       <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Cookie Policy</a>
-        <a className="link link-hover">Privacy Policy</a>
+        <Link to={"/about"} className="hover:underline decoration-bgText">About us</Link>
+        <Link to={"/contact"} className="hover:underline decoration-bgText">Contact</Link>
+        <Link to={"/cookie-policy"} className="hover:underline decoration-bgText">Cookie Policy</Link>
+        <Link to={"/privacy-policy"} className="hover:underline decoration-bgText">Privacy Policy</Link>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
@@ -48,7 +49,7 @@ export const Footer: React.FC = () => {
         </div>
       </nav>
       <aside>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved by EIMI Tech Innovations</p>
+        <p>Copyright © {new Date().getFullYear()} - All right reserved by EIMI Tech Innovations <Link to={'/terms-conditions'}> Terms & Condition</Link></p>
       </aside>
     </footer>
   )
