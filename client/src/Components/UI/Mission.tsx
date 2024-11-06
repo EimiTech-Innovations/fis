@@ -2,13 +2,13 @@ import React from "react";
 import innovateLives from "../../assets/innovate-lives.svg";
 import promoteInnovation from "../../assets/promote-innovation.svg";
 import transformDigital from "../../assets/transform.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Location, useLocation } from "react-router-dom";
 
 
 const Mission: React.FC = () => {
 
-  const location = useLocation()
-  console.log(location.pathname)
+  const location: Location = useLocation()
+
   return (
     <>
       {
