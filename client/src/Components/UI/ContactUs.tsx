@@ -1,16 +1,35 @@
 import React from "react";
 import telephone from "../../assets/telephone.svg"
-import { Link } from "react-router-dom";
+import { Link, Location, useLocation } from "react-router-dom";
 
 
 export const ContactUs: React.FC = () => {
+  const location: Location = useLocation()
+
   return (
     <>
-      <section className="bg-no-repeat bg-cover bg-heroBg">
+      {
+        location.pathname === "/contact" &&
+        <section className="py-20 mx-auto bg-no-repeat bg-cover bg-heroBg">
+          <div className="container px-5 mx-auto">
+            <p className="py-5 font-semibold"> <Link to={"/"} className="hover:underline decoration-bgText"> Home</Link> /
+              <Link className="hover:underline decoration-bgText" to={"/contact"}> Contact</Link>
+            </p>
+
+            <h2 className="pt-5 text-3xl font-bold"> Contact Us </h2>
+            <p className="pb-5 lg:w-1/2">We’d love to hear from you! Whether you have a question, feedback, or want to discuss how we can help your business, get in touch with us now.</p>
+          </div>
+
+        </section>
+      }
+      <section className={`bg-no-repeat bg-cover ${location.pathname === "/contact" ? "bg-none" : "bg-heroBg"}`}>
         <div className="container flex flex-col items-center justify-center py-12 mx-auto md:flex-row md:gap-28 lg:gap-52 ">
           <img className="w-full px-5 md:px-0 md:w-1/3" src={telephone} alt="Telephone" />
           <div className="flex flex-col w-full px-5 mt-8 md:px-0 md:w-1/3">
-            <h2 className="mb-1 text-2xl font-bold ">Contact Us</h2>
+            {
+              location.pathname != "/contact" && <h2 className="mb-1 text-2xl font-bold ">Contact Us</h2>
+            }
+
             <p className="mb-5 text-gray-600">Do you have any questions or would you like to request a service?</p>
             <div className="relative mb-4">
               <label htmlFor="name" className="text-sm leading-7 text-gray-600">Name</label>
