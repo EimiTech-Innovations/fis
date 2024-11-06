@@ -11,7 +11,7 @@ const Community = () => {
         <section className="py-20 mx-auto bg-no-repeat bg-cover bg-heroBg">
           <div className="container px-5 mx-auto">
             <p className="py-5 font-semibold"> <Link to={"/"} className="hover:underline decoration-bgText"> Home</Link> /
-              <Link className="hover:underline decoration-bgText" to={"/mission"}> Community </Link>
+              <Link className="hover:underline decoration-bgText" to={"/community"}> Community </Link>
             </p>
 
             <h2 className="pt-5 text-3xl font-bold"> Community </h2>
