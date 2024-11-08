@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
 import NotFound from "./Components/UI/NotFound";
 import { ContactUs } from "./Components/UI/ContactUs";
@@ -19,9 +19,18 @@ import TermsCondition from "./Pages/legal/TermsCondition";
 
 
 const App: React.FC = () => {
+  const location = useLocation()
+
+  const hideNavFooter = ["/signup", "/login"]
+
+  const shouldHideNavFooter = hideNavFooter.includes(location.pathname)
+
   return (
     <>
-      <Nav />
+      {
+        !shouldHideNavFooter && <Nav />
+      }
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mission" element={<Mission />} />
@@ -39,10 +48,13 @@ const App: React.FC = () => {
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsCondition />} />
-
       </Routes>
       <CookieConsents />
-      <Footer />
+      {
+        !shouldHideNavFooter && <Footer />
+      }
+
+
     </>
   );
 };
