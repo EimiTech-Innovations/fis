@@ -47,8 +47,8 @@ export const ContactUs: React.FC = () => {
               <textarea id="message" name="message" className="w-full h-32 px-3 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"></textarea>
             </div>
             <button className="px-6 py-2 text-lg border-0 rounded bg-btnBg text-bgText hover:bg-btnHover focus:outline-none">Submit </button>
-            <p className="mt-3 text-xs "> We will get back to you as soon as possible,
-              <Link to={"/login"} className="text-bgText "> Click here to Register/Login</Link>
+            <p className="mt-3 text-xs "> Already have an account,
+              <Link to={"/login"} className="text-bgText "> Click here to login</Link>
             </p>
           </div>
         </div>
