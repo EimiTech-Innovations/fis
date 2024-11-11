@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react'
 import mainLogo from "../../assets/main-logo.svg"
 
 
 const Signup: React.FC = () => {
-    const [errors, setError] = useState<boolean>(false)
-    const [isLoading, setisLoading] = useState<boolean>(false)
+    const [errors, _setError] = useState<boolean>(false)
+    const [isLoading, _setIsLoading] = useState<boolean>(false)
 
     return (
         <div className="bg-white ">
