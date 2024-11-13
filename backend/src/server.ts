@@ -1,13 +1,16 @@
-import app from './app/app';
+import createApp from './app';
+import { configValues } from './config';
 
-const PORT = process.env.PORT || 8082;
+const app = createApp();
 
 async function bootstrap() {
   try {
     // await mongoose.connect(config.db_uri as string)
-    console.log('DB connected successfully');
-    app.listen(PORT, () => {
-      console.log('listening to ' + PORT + ' ...');
+
+    app.listen(configValues.PORT, () => {
+      console.log(
+        `Server is running on ${configValues.NODE_ENV}://localhost:${configValues.PORT}`
+      );
     });
   } catch (error) {
     console.log(error);
