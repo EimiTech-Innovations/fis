@@ -1,6 +1,10 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import dbConnect from './config/db';
+
+//connect to the db
+dbConnect();
 
 const createApp = (): Application => {
   const app: Application = express();
