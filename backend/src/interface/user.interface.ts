@@ -2,24 +2,21 @@ import mongoose from 'mongoose';
 
 export enum Role {
   SUPER_ADMIN = 'SUPER_ADMIN',
-  ADMIN = 'Admin',
+  BUSINESS_OWNER = 'BUSINESS_OWNER',
 }
 
-type IAvatar = {
+export type IAvatar = {
   url: string;
   id: string;
 };
 
 export interface IUser extends Document {
-  companyName: string;
-  firstName: string;
-  lastName: string;
-  role: Role;
+  name: string;
   email: string;
   password: string;
-  category: mongoose.Types.ObjectId;
-  message?: string;
-  resetPasswordToken?: string;
+  role: Role;
+  business: mongoose.Types.ObjectId[];
   avatar?: IAvatar;
+  resetPasswordToken?: string;
   resetPasswordTokenExpiry?: string;
 }
