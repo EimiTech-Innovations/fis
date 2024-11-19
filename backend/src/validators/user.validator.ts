@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
-import { string, z } from 'zod';
+import { z } from 'zod';
 
 // Custom Zod validator for a single MongoDB ObjectId
-const objectIdSchema = z
+export const objectIdSchema = z
   .string()
   .refine((val) => mongoose.Types.ObjectId.isValid(val), {
     message: 'Invalid ObjectId',
