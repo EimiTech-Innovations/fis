@@ -19,4 +19,6 @@ export interface IUser extends Document {
   avatar?: IAvatar;
   resetPasswordToken?: string;
   resetPasswordTokenExpiry?: string;
+  comparePassword(plainPassword: string): boolean;
+  generateAccessToken(): string;
 }

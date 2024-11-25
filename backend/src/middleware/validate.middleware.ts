@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response, NextFunction } from 'express';
 
 import { AnyZodObject } from 'zod';
@@ -13,9 +14,15 @@ const validate =
         params: req.params,
       });
       return next();
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      return next(new ApiError(error, 400));
+      console.log(error);
+      const allErrors = error.issues.map(
+        (issue: any) =>
+          issue.path.join() + ' ' + issue.message + ' ' + issue.expected
+      );
+      const errorMessage = allErrors.join(', ');
+      console.log(errorMessage);
+      return next(new ApiError(errorMessage, 400));
     }
   };
 

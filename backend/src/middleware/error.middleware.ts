@@ -1,10 +1,12 @@
-import { Request, Response, ErrorRequestHandler } from 'express';
+import { Request, Response, ErrorRequestHandler, NextFunction } from 'express';
 import { ApiError } from '../helper/apiError.helper';
 
 const errorMiddleware: ErrorRequestHandler = async (
   err: ApiError,
   _req: Request,
-  res: Response
+  res: Response,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _next: NextFunction
 ) => {
   err.statusCode = err.statusCode || 500;
   err.message = err.message || 'Internal Server Error';
