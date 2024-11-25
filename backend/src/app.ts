@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import dbConnect from './config/db';
 import { configValues } from './config';
+import errorMiddleware from './middleware/error.middleware';
 
 //connect to the db
 dbConnect();
@@ -62,6 +63,7 @@ const createApp = (): Application => {
     });
   });
 
+  app.use(errorMiddleware);
   return app;
 };
 

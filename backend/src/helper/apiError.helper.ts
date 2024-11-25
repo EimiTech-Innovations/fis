@@ -4,7 +4,7 @@ export interface IApiError extends Error {
 
 export class ApiError extends Error implements IApiError {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  keyvalue(keyvalue: unknown) {
+  keyvalue(keyValue: unknown) {
     throw new Error('Method not implemented');
   }
 
