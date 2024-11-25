@@ -3,6 +3,10 @@ import cors from 'cors';
 import morgan from 'morgan';
 import dbConnect from './config/db';
 import { configValues } from './config';
+import errorMiddleware from './middleware/error.middleware';
+
+// routes
+import authRoutes from './routes/v1/auth.route';
 
 //connect to the db
 dbConnect();
@@ -49,6 +53,8 @@ const createApp = (): Application => {
     });
   });
 
+  app.use(`/api/${configValues.PREFIX}/auth`, authRoutes);
+
   /**
    * @SERVER_ROUTE_NOT_DEFINE
    * @ROUTE @GET {{URL}}/*
@@ -61,6 +67,8 @@ const createApp = (): Application => {
       message: 'Route not found',
     });
   });
+
+  app.use(errorMiddleware);
 
   return app;
 };

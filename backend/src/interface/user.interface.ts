@@ -15,8 +15,10 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role: Role;
-  business: mongoose.Types.ObjectId[];
+  business?: mongoose.Types.ObjectId[];
   avatar?: IAvatar;
   resetPasswordToken?: string;
   resetPasswordTokenExpiry?: string;
+  comparePassword(plainPassword: string): boolean;
+  generateAccessToken(): string;
 }

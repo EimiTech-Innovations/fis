@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { objectIdSchema } from './user.validator';
+import { objectIdSchema } from './auth.schema.validator';
 
 export const businessZodSchema = z.object({
   name: z
