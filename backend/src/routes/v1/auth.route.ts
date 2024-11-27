@@ -4,7 +4,11 @@ import {
   userLoginSchema,
   userRegistrationSchema,
 } from '../../validators/auth.schema.validator';
-import { registerUser, userLogin } from '../../controllers/auth.controller';
+import {
+  registerUser,
+  userLogin,
+  userLogout,
+} from '../../controllers/auth.controller';
 
 const router = Router();
 
@@ -13,5 +17,6 @@ const router = Router();
  */
 router.route('/new').post(validate(userRegistrationSchema), registerUser);
 router.route('/login').post(validate(userLoginSchema), userLogin);
+router.route('/logout').post(userLogout);
 
 export default router;

@@ -97,3 +97,24 @@ export const userLogin = asyncHandler(
     });
   }
 );
+
+/**
+ * @LOGOUT
+ * @ROUTE @POST {{URL}}/api/v1/auth/logout
+ * @returns  remove the access token and logout the user
+ * @ACCESS Private
+ */
+export const userLogout = asyncHandler(async (_req: Request, res: Response) => {
+  // set the cookie
+  res
+    .cookie('token', '', {
+      secure: process.env.NODE_ENV === 'production' ? true : false,
+      httpOnly: true,
+      maxAge: 1,
+      sameSite: 'none', // all request
+    })
+    .json({
+      success: true,
+      message: 'User logout successfully',
+    });
+});
