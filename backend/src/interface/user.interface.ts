@@ -13,7 +13,7 @@ export type IAvatar = {
 export interface IUser extends Document {
   name: string;
   email: string;
-  password: string;
+  password: string | undefined;
   role: Role;
   business?: mongoose.Types.ObjectId[];
   avatar?: IAvatar;

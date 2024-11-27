@@ -42,6 +42,7 @@ export const registerUser = asyncHandler(
     // get access token
     const accessToken = await user.generateAccessToken();
 
+    // set the cookie
     res.cookie('token', accessToken, {
       secure: process.env.NODE_ENV === 'production' ? true : false,
       httpOnly: true,
@@ -54,6 +55,45 @@ export const registerUser = asyncHandler(
       success: true,
       message: 'User registered successfully',
       user: user,
+    });
+  }
+);
+
+/**
+ * TODO: check if the user other fields are over-written
+ * @LOGIN
+ * @ROUTE @POST {{URL}}/api/v1/auth/login
+ * @returns  Access token(response) and user login message
+ * @ACCESS Public
+ */
+export const userLogin = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email }).select('+password');
+
+    if (!user || !(await user.comparePassword(password))) {
+      return next(new ApiError('Invalid user credentials provided', 400));
+    }
+
+    // generate token
+    const accessToken = await user.generateAccessToken();
+
+    // set the cookie
+    res.cookie('token', accessToken, {
+      secure: process.env.NODE_ENV === 'production' ? true : false,
+      httpOnly: true,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      sameSite: 'none', // all request
+    });
+
+    user.password = undefined;
+
+    res.status(200).json({
+      success: true,
+      message: 'User loggedIn successfully',
+      accessToken,
+      user,
     });
   }
 );

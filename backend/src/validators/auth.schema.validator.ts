@@ -8,7 +8,8 @@ export const objectIdSchema = z
     message: 'Invalid ObjectId',
   });
 
-export const userRegistration = z.object({
+// user registration
+export const userRegistrationSchema = z.object({
   body: z.object({
     name: z
       .string()
@@ -17,7 +18,7 @@ export const userRegistration = z.object({
     email: z.string().email({ message: 'Invalid email format' }),
     password: z
       .string()
-      .min(8, { message: 'Password must be at least 6 characters long' }),
+      .min(8, { message: 'Password must be at least 8 characters long' }),
     role: z.enum(['SUPER_ADMIN', 'BUSINESS_OWNER']).optional(),
     business: z.array(objectIdSchema).optional(),
 
@@ -29,5 +30,15 @@ export const userRegistration = z.object({
       .optional(),
     resetpasswordToken: z.string().optional(),
     resetpasswordExpiry: z.string().optional(),
+  }),
+});
+
+// userLogin
+export const userLoginSchema = z.object({
+  body: z.object({
+    email: z.string().email({ message: 'Invalid email format' }),
+    password: z
+      .string()
+      .min(8, { message: 'Password must be at least 8 characters long' }),
   }),
 });
