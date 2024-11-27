@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { IConfigValues } from '../interface/config.interface';
+import { IConfigValues } from '../types/config.interface';
 dotenv.config();
 
 export const configValues: IConfigValues = {
