@@ -1,7 +1,5 @@
-import createApp from './app';
+import app from './app';
 import { configValues } from './config';
-
-const app = createApp();
 
 async function bootstrap() {
   try {
