@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { IServiceTypes } from '../interface/serviceTypes.interface';
+import { IServiceTypes } from '../types/serviceTypes.interface';
 
 const serviceTypesSchema = new mongoose.Schema<IServiceTypes>({
   name: {

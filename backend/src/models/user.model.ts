@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { IUser, Role } from '../interface/user.interface';
+import { IUser, Role } from '../types/user.interface';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 

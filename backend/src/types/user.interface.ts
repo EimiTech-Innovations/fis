@@ -22,3 +22,9 @@ export interface IUser extends Document {
   comparePassword(plainPassword: string): boolean;
   generateAccessToken(): string;
 }
+
+// jwt payload type
+export interface IJwtPayload {
+  user_id: string;
+  role: number;
+}

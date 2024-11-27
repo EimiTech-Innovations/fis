@@ -5,9 +5,6 @@ import dbConnect from './config/db';
 import { configValues } from './config';
 import errorMiddleware from './middleware/error.middleware';
 
-// routes
-import authRoutes from './routes/v1/auth.route';
-
 //connect to the db
 dbConnect();
 
@@ -51,7 +48,12 @@ app.get(`/api/${configValues.PREFIX}/mode`, (_req, res) => {
   });
 });
 
+// routes
+import authRoutes from './routes/v1/auth.route';
+import userRoutes from './routes/v1/user.route';
+
 app.use(`/api/${configValues.PREFIX}/auth`, authRoutes);
+app.use(`/api/${configValues.PREFIX}/user`, userRoutes);
 
 /**
  * @SERVER_ROUTE_NOT_DEFINE
