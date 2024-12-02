@@ -2,6 +2,7 @@ import { asyncHandler } from '../helper/asynchandler.helper';
 import { Request, Response, NextFunction } from 'express';
 import { User } from '../models/user.model';
 import { ApiError } from '../helper/apiError.helper';
+import sendEmail from '../helper/sendMail.helper';
 
 /**
  * @REGISTER
@@ -118,3 +119,52 @@ export const userLogout = asyncHandler(async (_req: Request, res: Response) => {
       message: 'User logout successfully',
     });
 });
+
+/**
+ * @FORGOT_PASSWORD
+ * @ROUTE @POST {{URL}}/api/v1/auth/reset
+ * @returns Send User reset Password token to the user Email
+ * @ACCESS Public
+ */
+
+export const forgetPasswordToken = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return next(new ApiError('User not found, Please register', 404));
+    }
+
+    const resetpasswordToken = await user.generatePasswordResetToken();
+    user.save();
+
+    const resetPasswordUrl = `${process.env.CLIENT_URL}/auth/reset/${resetpasswordToken}`;
+
+    const subject: string = 'Reset your Password!';
+    const message: string = `Please click the link - ${resetPasswordUrl} \nplease ignore it, if you did not request this.`;
+
+    try {
+      await sendEmail(email, subject, message);
+      res.status(200).json({
+        success: true,
+        message: `Reset email password send to ${email} successfully`,
+      });
+      // TODO: define proper interface for the error
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      user.resetPasswordToken = undefined;
+      user.resetPasswordTokenExpiry = undefined;
+
+      await user.save();
+
+      return next(
+        new ApiError(
+          error.message || 'Something went wrong, please try again',
+          400
+        )
+      );
+    }
+  }
+);

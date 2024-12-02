@@ -15,13 +15,11 @@ const validate =
       });
       return next();
     } catch (error: any) {
-      console.log(error);
       const allErrors = error.issues.map(
         (issue: any) =>
           issue.path.join() + ' ' + issue.message + ' ' + issue.expected
       );
       const errorMessage = allErrors.join(', ');
-      console.log(errorMessage);
       return next(new ApiError(errorMessage, 400));
     }
   };

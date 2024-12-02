@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { describe, it, expect } from 'vitest';
 
-import { configValues } from '../config';
-import app from '../app';
+import { configValues } from '../../config';
+import app from '../../app';
 
 describe('Check mode', () => {
   it('should return development or production', async () => {
