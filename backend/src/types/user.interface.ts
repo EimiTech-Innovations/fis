@@ -21,6 +21,7 @@ export interface IUser extends Document {
   resetPasswordTokenExpiry?: string;
   comparePassword(plainPassword: string): boolean;
   generateAccessToken(): string;
+  generatePasswordResetToken(): string;
 }
 
 // jwt payload type

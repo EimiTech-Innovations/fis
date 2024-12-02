@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import { IUser, Role } from '../types/user.interface';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
 
 const userSchema = new mongoose.Schema<IUser>(
   {
@@ -85,6 +86,18 @@ userSchema.methods = {
         expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
       }
     );
+  },
+
+  // generate password reset token
+  generatePasswordResetToken: async function name() {
+    const resetToken = crypto.randomBytes(20).toString('hex');
+    this.resetPasswordToken = crypto
+      .createHash('sha256')
+      .update(resetToken)
+      .digest('hex');
+
+    this.resetpasswordExpiry = Date.now() + 15 * 60 * 1000;
+    return resetToken;
   },
 };
 
