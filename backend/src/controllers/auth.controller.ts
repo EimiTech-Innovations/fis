@@ -127,7 +127,7 @@ export const userLogout = asyncHandler(async (_req: Request, res: Response) => {
  * @ACCESS Public
  */
 
-export const forgetPasswordToken = asyncHandler(
+export const forgotPassword = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const { email } = req.body;
 
@@ -138,7 +138,7 @@ export const forgetPasswordToken = asyncHandler(
     }
 
     const resetpasswordToken = await user.generatePasswordResetToken();
-    user.save();
+    await user.save();
 
     const resetPasswordUrl = `${process.env.CLIENT_URL}/auth/reset/${resetpasswordToken}`;
 
