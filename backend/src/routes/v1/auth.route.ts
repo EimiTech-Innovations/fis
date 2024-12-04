@@ -8,6 +8,7 @@ import {
 import {
   forgotPassword,
   registerUser,
+  resetPassword,
   userLogin,
   userLogout,
 } from '../../controllers/auth.controller';
@@ -24,4 +25,5 @@ router
   .route('/forgotPassword')
   .post(validate(userForgotPasswordSchema), forgotPassword);
 
+router.route('/reset/:token').post(resetPassword);
 export default router;

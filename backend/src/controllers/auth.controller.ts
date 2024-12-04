@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import { User } from '../models/user.model';
 import { ApiError } from '../helper/apiError.helper';
 import sendEmail from '../helper/sendMail.helper';
+import crypto from 'crypto';
 
 /**
  * @REGISTER
@@ -126,7 +127,6 @@ export const userLogout = asyncHandler(async (_req: Request, res: Response) => {
  * @returns Send User reset Password token to the user Email
  * @ACCESS Public
  */
-
 export const forgotPassword = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const { email } = req.body;
@@ -166,5 +166,51 @@ export const forgotPassword = asyncHandler(
         )
       );
     }
+  }
+);
+
+/**
+ * @RESET_PASSWORD
+ * @ROUTE @POST {{URL}}/api/v1/auth/reset/:token
+ * @returns Password changed successfully
+ * @ACCESS Public
+ */
+export const resetPassword = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { token } = req.params;
+    const { password } = req.body;
+
+    console.log(token);
+
+    const resetPasswordToken = crypto
+      .createHash('sha256')
+      .update(token)
+      .digest('hex');
+
+    const user = await User.findOne({
+      resetPasswordToken,
+      resetPasswordTokenExpiry: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return next(
+        new ApiError(
+          'Reset password token is invalid or expired, please try again.',
+          400
+        )
+      );
+    }
+
+    user.password = password;
+    user.resetPasswordToken = undefined;
+    // token expiry issue
+    user.resetPasswordTokenExpiry = undefined;
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: 'Password updated successfully, please login',
+    });
   }
 );
