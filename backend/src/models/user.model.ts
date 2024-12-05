@@ -25,7 +25,6 @@ const userSchema = new mongoose.Schema<IUser>(
       type: String,
       required: [true, 'Password is required'],
       minlength: [6, 'Password must be at least 6 characters long'],
-      maxLength: [20, 'Password cannot be more than 20 characters'],
     },
     role: {
       type: String,
@@ -89,14 +88,14 @@ userSchema.methods = {
   },
 
   // generate password reset token
-  generatePasswordResetToken: async function name() {
+  generatePasswordResetToken: async function () {
     const resetToken = crypto.randomBytes(20).toString('hex');
     this.resetPasswordToken = crypto
       .createHash('sha256')
       .update(resetToken)
       .digest('hex');
 
-    this.resetpasswordExpiry = Date.now() + 15 * 60 * 1000;
+    this.resetPasswordTokenExpiry = Date.now() + 15 * 60 * 1000;
     return resetToken;
   },
 };
