@@ -88,7 +88,7 @@ userSchema.methods = {
   },
 
   // generate password reset token
-  generatePasswordResetToken: async function name() {
+  generatePasswordResetToken: async function () {
     const resetToken = crypto.randomBytes(20).toString('hex');
     this.resetPasswordToken = crypto
       .createHash('sha256')

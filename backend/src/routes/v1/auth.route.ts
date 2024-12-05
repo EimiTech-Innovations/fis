@@ -4,6 +4,7 @@ import {
   userForgotPasswordSchema,
   userLoginSchema,
   userRegistrationSchema,
+  userResetPasswordSchema,
 } from '../../validators/auth.schema.validator';
 import {
   forgotPassword,
@@ -25,5 +26,7 @@ router
   .route('/forgotPassword')
   .post(validate(userForgotPasswordSchema), forgotPassword);
 
-router.route('/reset/:token').post(resetPassword);
+router
+  .route('/reset/:token')
+  .post(validate(userResetPasswordSchema), resetPassword);
 export default router;

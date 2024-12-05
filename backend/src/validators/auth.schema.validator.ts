@@ -51,3 +51,12 @@ export const userForgotPasswordSchema = z.object({
     }),
   }),
 });
+
+// resetPassword
+export const userResetPasswordSchema = z.object({
+  body: z.object({
+    password: z
+      .string()
+      .min(8, { message: 'Password must be at least 8 characters long' }),
+  }),
+});

@@ -39,8 +39,6 @@ export const registerUser = asyncHandler(
       return next(new ApiError('User registration failed!', 400));
     }
 
-    // TODO: mail set up
-
     // get access token
     const accessToken = await user.generateAccessToken();
 
@@ -180,15 +178,13 @@ export const resetPassword = asyncHandler(
     const { token } = req.params;
     const { password } = req.body;
 
-    console.log(token);
-
     const resetPasswordToken = crypto
       .createHash('sha256')
       .update(token)
       .digest('hex');
 
     const user = await User.findOne({
-      resetPasswordToken,
+      resetPasswordToken: resetPasswordToken,
       resetPasswordTokenExpiry: { $gt: Date.now() },
     });
 
