@@ -13,10 +13,19 @@ export type IAvatar = {
 export interface IUser extends Document {
   name: string;
   email: string;
-  password: string;
+  password: string | undefined;
   role: Role;
-  business: mongoose.Types.ObjectId[];
+  business?: mongoose.Types.ObjectId[];
   avatar?: IAvatar;
   resetPasswordToken?: string;
   resetPasswordTokenExpiry?: string;
+  comparePassword(plainPassword: string): boolean;
+  generateAccessToken(): string;
+  generatePasswordResetToken(): string;
+}
+
+// jwt payload type
+export interface IJwtPayload {
+  user_id: string;
+  role: number;
 }
