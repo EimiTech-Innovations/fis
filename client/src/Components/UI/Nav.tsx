@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
         {/* TODO:active  */}
         <ul className=" menu menu-horizontal">
           <li>
-            <Link className="hover:underline decoration-bgText " to={"/mission"}> Mission</Link>
+            <Link className="hover:underline decoration-bgText " to={"/mission"}> Vision </Link>
           </li>
           <li>
             <Link className="hover:underline decoration-bgText" to={"/services"}> Services </Link>
