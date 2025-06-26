@@ -15,10 +15,11 @@ const Home: React.FC = () => {
       <Layout>
         <HeroSection />
         <Mission />
+        <Work />
         <AboutUs />
         <Team />
         <Community />
-        <Work />
+
         <ContactUs />
       </Layout>
     </div>

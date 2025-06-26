@@ -16,11 +16,11 @@ const Mission: React.FC = () => {
         <section className="py-20 mx-auto bg-no-repeat bg-cover bg-heroBg">
           <div className="container px-5 mx-auto">
             <p className="py-5 font-semibold"> <Link to={"/"} className="hover:underline decoration-bgText"> Home</Link> /
-              <Link className="hover:underline decoration-bgText" to={"/mission"}> Mission</Link>
+              <Link className="hover:underline decoration-bgText" to={"/mission"}> Vision </Link>
             </p>
 
-            <h2 className="pt-5 text-3xl font-bold"> Mission</h2>
-            <p className="pb-5 lg:w-1/2"> Our mission is to innovate lives by creating groundbreaking solutions, promote innovation at every step, and transform the digital landscape to empower individuals and businesses for a brighter, more connected future.</p>
+            <h2 className="pt-5 text-3xl font-bold"> Vision</h2>
+            <p className="pb-5 lg:w-1/2"> Our vision is to innovate lives by creating groundbreaking solutions, promote innovation at every step, and transform the digital landscape to empower individuals and businesses for a brighter, more connected future.</p>
           </div>
 
         </section>
@@ -29,7 +29,7 @@ const Mission: React.FC = () => {
       <div className="container mx-auto">
 
         <div id="mission" className="py-10 text-center md:py-20 ">
-          {location.pathname != "/mission" && <h2 className="text-3xl font-bold"> Mission</h2>}
+          {location.pathname != "/mission" && <h2 className="text-3xl font-bold"> VISION</h2>}
 
           {/* TODO:Quote should be dynamic */}
           <p> &quot;Technology is best when it brings people together&quot;</p>

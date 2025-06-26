@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
         <Link to={"/cookie-policy"} className="hover:underline decoration-bgText">Cookie Policy</Link>
         <Link to={"/privacy-policy"} className="hover:underline decoration-bgText">Privacy Policy</Link>
       </nav>
-      <nav>
+      {/* <nav>
         <div className="grid grid-flow-col gap-4">
           <a>
             <svg
@@ -47,9 +47,9 @@ export const Footer: React.FC = () => {
             </svg>
           </a>
         </div>
-      </nav>
+      </nav> */}
       <aside>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved by Eimi Tech Innovations - <Link to={'/terms-conditions'} className="hover:underline decoration-bgText"> Terms & Condition</Link></p>
+        <p>Copyright © {new Date().getFullYear()} - All right reserved by Friendly Innovation Solution - <Link to={'/terms-conditions'} className="hover:underline decoration-bgText"> Terms & Condition</Link></p>
       </aside>
     </footer>
   )

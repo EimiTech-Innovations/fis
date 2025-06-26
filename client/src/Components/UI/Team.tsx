@@ -20,6 +20,7 @@ const Team: React.FC = () => {
 
         <section className="content-center text-gray-600 body-font">-*
           <div className="flex flex-wrap justify-center py-auto ">
+
             <div className="p-2 md:p-4 lg:w-1/3 md:w-1/2">
               <div className="relative flex flex-col items-center text-center w-36 md:w-full md:h-56 group">
                 <img
@@ -32,6 +33,7 @@ const Team: React.FC = () => {
                 </h1>
               </div>
             </div>
+
             <div className="p-2 md:p-4 lg:w-1/3 md:w-1/2 ">
               <div className="relative flex flex-col items-center text-center w-36 md:w-full md:h-56 group">
                 <img
@@ -44,6 +46,7 @@ const Team: React.FC = () => {
                 </h1>
               </div>
             </div>
+
             <div className="p-2 md:p-4 lg:w-1/3 md:w-1/2 ">
               <div className="relative flex flex-col items-center text-center w-36 md:h-56 group md:w-full">
                 <img
@@ -56,6 +59,7 @@ const Team: React.FC = () => {
                 </h1>
               </div>
             </div>
+
           </div>
         </section>
       </div>
