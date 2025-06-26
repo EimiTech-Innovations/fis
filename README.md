@@ -1,6 +1,6 @@
-🌟 # Eimi Tech Innovations # 🌟
+🌟 # Friendly Innovation Solutions # 🌟
 
-Welcome Eimi Tech Innovations! We are a passionate community dedicated to promoting technological innovation, impacting lives through digital solutions, and transforming the digital landscape through strategic insights. Our goal is to Innovate lives, Promote Innovations and Transform Digital Landscape.
+Welcome Friendly Innovation Solutions! We are a passionate community dedicated to promoting technological innovation, impacting lives through digital solutions, and transforming the digital landscape through strategic insights. Our goal is to Innovate lives, Promote Innovations and Transform Digital Landscape.
 
 
 ## 🚀 Our Mission
@@ -23,7 +23,7 @@ We love your input! Here's how you can get started:
 4. **Submit a pull request** with a clear description of your changes.
 
 Checkout our main repositories
-- [EimiTechInnovations frontend](https://github.com/EimiTech-Innovations/EimiTech-webpage/tree/main/client)
+- [EimiTechInnovations frontend](https://github.com/EimiTech-Innovations/fis/tree/main/client)
 
 <!-- For detailed contribution guidelines, please refer to our [Contributing Guide](CONTRIBUTING.md). -->
 
