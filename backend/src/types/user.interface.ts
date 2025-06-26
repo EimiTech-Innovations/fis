@@ -29,3 +29,5 @@ export interface IJwtPayload {
   user_id: string;
   role: number;
 }
+
+export interface IROLES {}
