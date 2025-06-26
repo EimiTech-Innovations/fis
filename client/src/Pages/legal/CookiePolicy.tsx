@@ -22,7 +22,8 @@ const CookiePolicy: React.FC = () => {
 
       <div className="container px-6 py-10 mx-auto bg-white rounded-lg shadow-md lg:w-2/3">
         <p className="py-5 text-gray-700">
-          Welcome to eimitechinn.com’s Cookie Policy. This policy explains how we
+          {/* TODO: main links eg. fis.com once domain is bought */}
+          Welcome to FIS Cookie Policy. This policy explains how we
           use cookies and similar tracking technologies on our website to provide a
           better user experience, personalize content, and analyze our traffic.
         </p>

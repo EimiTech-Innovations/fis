@@ -15,7 +15,7 @@ const Login: React.FC = () => {
                     <div className="flex items-center w-full h-full px-20 bg-gray-900 bg-opacity-40">
                         <div>
                             <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                                Eimi Technology and Innovations
+                                Friendly Innovation Solution
                             </h2>
                             <p className="max-w-xl mt-3 text-gray-300">
 
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
                     <div className="flex-1">
                         <div className="text-center">
                             <div className="flex justify-center mx-auto"></div>
-                            <img src={mainLogo} alt="Eimi Tech Innovation" className='mx-auto' />
+                            <img src={mainLogo} alt=" Friendly Innovation Solution" className='mx-auto' />
                             <p className="mt-3 text-gray-500">
                                 Login to your account
                             </p>

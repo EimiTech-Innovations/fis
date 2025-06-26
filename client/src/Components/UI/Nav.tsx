@@ -1,5 +1,5 @@
 import React from "react";
-import eimiTechLogo from "../../assets/main-logo.svg";
+import eimiTechLogo from "../../assets/main-logo.png";
 import { Link } from "react-router-dom";
 
 const Nav: React.FC = () => {
@@ -8,7 +8,7 @@ const Nav: React.FC = () => {
     <div className="container mx-auto navbar bg-base-100 ">
       <div className="navbar-start">
         <Link to={"/"} className="text-xl font-medium ">
-          <img src={eimiTechLogo} alt="Eimi Tech Innovation" />
+          <img className="h-20" src={eimiTechLogo} alt="Eimi Tech Innovation" />
         </Link>
       </div>
       <div className="hidden navbar-center lg:flex">

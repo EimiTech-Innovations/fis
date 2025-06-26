@@ -18,7 +18,8 @@ const PrivacyPolicy: React.FC = () => {
             </section>
             <div className="container px-6 py-10 mx-auto bg-white rounded-lg lg:w-2/3">
                 <p className="mb-6 text-gray-700">
-                    Eimitechinn.com ("we", "our", "us") respects your privacy and is committed
+                    {/* TODO: paste domain later */}
+                    fis ("we", "our", "us") respects your privacy and is committed
                     to protecting your personal data. This Privacy Policy explains how we collect,
                     use, and share your information when you visit our website.
                 </p>

@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
         </div>
       </nav> */}
       <aside>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved by Eimi Tech Innovations - <Link to={'/terms-conditions'} className="hover:underline decoration-bgText"> Terms & Condition</Link></p>
+        <p>Copyright © {new Date().getFullYear()} - All right reserved by Friendly Innovation Solution - <Link to={'/terms-conditions'} className="hover:underline decoration-bgText"> Terms & Condition</Link></p>
       </aside>
     </footer>
   )
