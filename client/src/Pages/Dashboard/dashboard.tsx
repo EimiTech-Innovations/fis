@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { LineChart, BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Line, Bar } from 'recharts';
 
 // Sample data
@@ -15,7 +15,7 @@ const serviceData = [
 const MainDashboard = () => {
   const [activeView, setActiveView] = useState('billing');
 
-  const handleViewChange = (view:string) => {
+  const handleViewChange = (view: string) => {
     setActiveView(view);
   };
 
@@ -40,18 +40,18 @@ const MainDashboard = () => {
       </div>
       {activeView === 'billing' && (
         <div className="grid grid-cols-3 gap-4">
-        <div className="col-span-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg rounded-lg p-6">
-          <div className="text-lg font-bold mb-2">Total Income</div>
-          <div className="text-4xl font-bold">$129,230</div>
-        </div>
-        <div className="col-span-1 bg-gradient-to-r from-green-500 to-teal-500 text-white shadow-lg rounded-lg p-6">
-          <div className="text-lg font-bold mb-2">Total Sales</div>
-          <div className="text-4xl font-bold">2,456</div>
-        </div>
-        <div className="col-span-1 bg-gradient-to-r from-red-500 to-yellow-500 text-white shadow-lg rounded-lg p-6">
-          <div className="text-lg font-bold mb-2">Total Expenses</div>
-          <div className="text-4xl font-bold">$5,354</div>
-        </div>
+          <div className="col-span-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg rounded-lg p-6">
+            <div className="text-lg font-bold mb-2">Total Income</div>
+            <div className="text-4xl font-bold">$129,230</div>
+          </div>
+          <div className="col-span-1 bg-gradient-to-r from-green-500 to-teal-500 text-white shadow-lg rounded-lg p-6">
+            <div className="text-lg font-bold mb-2">Total Sales</div>
+            <div className="text-4xl font-bold">2,456</div>
+          </div>
+          <div className="col-span-1 bg-gradient-to-r from-red-500 to-yellow-500 text-white shadow-lg rounded-lg p-6">
+            <div className="text-lg font-bold mb-2">Total Expenses</div>
+            <div className="text-4xl font-bold">$5,354</div>
+          </div>
           <div className="col-span-3 bg-white shadow-lg rounded-lg p-6">
             <div className="text-lg font-bold mb-4">Sales Revenue</div>
             <LineChart width={1200} height={400} data={serviceData}>
