@@ -46,14 +46,14 @@ export const isLoggedIn = asyncHandler(
   }
 );
 
-export const authorizeRoles = (...roles: IROLES) => {
-  asyncHandler(async (req, _res, next) => {
-    if (!roles.includes(req.user?.role)) {
-      return next(
-        new ApiError('You are not authorized to access this route', 403)
-      );
-    }
+// export const authorizeRoles = (...roles: IROLES) => {
+//   asyncHandler(async (req, _res, next) => {
+//     if (!roles.includes(req.user?.role)) {
+//       return next(
+//         new ApiError('You are not authorized to access this route', 403)
+//       );
+//     }
 
-    next();
-  });
-};
+//     next();
+//   });
+// };
