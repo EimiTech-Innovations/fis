@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react'
-import mainLogo from "../../assets/main-logo.svg"
+import fis from "../../assets/fis.svg"
 
 const Login: React.FC = () => {
     const [errors, _setError] = useState<boolean>(false)
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
                     <div className="flex-1">
                         <div className="text-center">
                             <div className="flex justify-center mx-auto"></div>
-                            <img src={mainLogo} alt=" Friendly Innovation Solution" className='mx-auto' />
+                            <img src={fis} alt=" Friendly Innovation Solution" className='mx-auto' />
                             <p className="mt-3 text-gray-500">
                                 Login to your account
                             </p>
