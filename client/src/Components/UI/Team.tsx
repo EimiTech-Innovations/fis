@@ -1,7 +1,8 @@
 import React from "react";
-import profileIcon from "../../assets/profile.png"
-import profileIcon2 from "../../assets/profile2.png"
-import profileIcon3 from "../../assets/profile3.png"
+import joicy from "../../assets/team/joicy.jpeg"
+import mang from "../../assets/team/mang.jpeg"
+import marcus from "../../assets/team/marcus.jpeg"
+import max from "../../assets/team/max.png"
 
 const Team: React.FC = () => {
   return (
@@ -18,18 +19,31 @@ const Team: React.FC = () => {
           </p>
         </div>
 
-        <section className="content-center text-gray-600 body-font">-*
+        <section className="content-center text-gray-600 body-font">
           <div className="flex flex-wrap justify-center py-auto ">
+
+            <div className="p-2 md:p-4 lg:w-1/3 md:w-1/2 ">
+              <div className="relative flex flex-col items-center text-center w-36 md:h-56 group md:w-full">
+                <img
+                  alt="Mamang Touthang"
+                  className="flex-shrink-0 object-cover object-center w-full h-56 rounded-lg group-hover:opacity-30 "
+                  src={max}
+                />
+                <h1 className="absolute transition ease-in-out delay-150 shadow-sm md:hidden top-36 group-hover:block">
+                  Max Touthang
+                </h1>
+              </div>
+            </div>
 
             <div className="p-2 md:p-4 lg:w-1/3 md:w-1/2">
               <div className="relative flex flex-col items-center text-center w-36 md:w-full md:h-56 group">
                 <img
                   alt="Max Touthang"
                   className="flex-shrink-0 object-cover object-center w-full h-56 rounded-lg group-hover:opacity-30 "
-                  src={profileIcon}
+                  src={joicy}
                 />
                 <h1 className="absolute transition ease-in-out delay-150 shadow-sm md:hidden top-36 group-hover:block">
-                  Max Touthang
+                  Joicy
                 </h1>
               </div>
             </div>
@@ -39,10 +53,10 @@ const Team: React.FC = () => {
                 <img
                   alt="Marcus Chongloi"
                   className="flex-shrink-0 object-cover object-center w-full h-56 rounded-lg group-hover:opacity-30 "
-                  src={profileIcon2}
+                  src={mang}
                 />
                 <h1 className="absolute transition ease-in-out delay-150 shadow-sm md:hidden top-36 group-hover:block">
-                  Marcus Chongloi
+                  Mamang
                 </h1>
               </div>
             </div>
@@ -52,10 +66,10 @@ const Team: React.FC = () => {
                 <img
                   alt="Mamang Touthang"
                   className="flex-shrink-0 object-cover object-center w-full h-56 rounded-lg group-hover:opacity-30 "
-                  src={profileIcon3}
+                  src={marcus}
                 />
                 <h1 className="absolute transition ease-in-out delay-150 shadow-sm md:hidden top-36 group-hover:block">
-                  Mamang Touthang
+                  Marcus Chongloi
                 </h1>
               </div>
             </div>
