@@ -18,5 +18,6 @@
     "allowJs": true
   },
   "include": ["src", "*.ts", "postcss.config.js"],
+  "exclude": ["vite.config.ts", "tailwind.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
