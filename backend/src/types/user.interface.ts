@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export enum Role {
   SUPER_ADMIN = 'SUPER_ADMIN',
-  BUSINESS_OWNER = 'ADMIN',
+  ADMIN = 'ADMIN',
 }
 
 export type IAvatar = {
