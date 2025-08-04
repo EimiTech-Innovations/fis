@@ -3,6 +3,8 @@ import { asyncHandler } from '../helper/asynchandler.helper';
 import { User } from '../models/user.model';
 import { ApiError } from '../helper/apiError.helper';
 
+// TODO: make sure the user creation is sync with service (eg. dineconnect)
+
 /**
  * @GET_PROFILE
  * @ROUTE @GET {{URL}}/api/v1/user
