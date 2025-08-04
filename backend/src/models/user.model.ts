@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema<IUser>(
       type: String,
       enum: Object.values(Role),
       required: [true, 'Role is required'],
+      default: Role.ADMIN,
     },
 
     client: [
