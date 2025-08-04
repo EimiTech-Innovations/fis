@@ -27,7 +27,7 @@ export const registerUser = asyncHandler(
       name,
       email,
       password,
-      role: 'BUSINESS_OWNER',
+      role: 'ADMIN',
       avatar: {
         id: email,
         avatarUrl:
@@ -119,6 +119,7 @@ export const userLogout = asyncHandler(async (_req: Request, res: Response) => {
     });
 });
 
+// TODO: forget password and reset password need to be checked.
 /**
  * @FORGOT_PASSWORD
  * @ROUTE @POST {{URL}}/api/v1/auth/reset

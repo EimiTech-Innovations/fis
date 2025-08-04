@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export enum Role {
   SUPER_ADMIN = 'SUPER_ADMIN',
-  BUSINESS_OWNER = 'BUSINESS_OWNER',
+  BUSINESS_OWNER = 'ADMIN',
 }
 
 export type IAvatar = {
@@ -15,7 +15,7 @@ export interface IUser extends Document {
   email: string;
   password: string | undefined;
   role: Role;
-  business?: mongoose.Types.ObjectId[];
+  client?: mongoose.Types.ObjectId[];
   avatar?: IAvatar;
   resetPasswordToken?: string;
   resetPasswordTokenExpiry?: string;
@@ -29,5 +29,3 @@ export interface IJwtPayload {
   user_id: string;
   role: number;
 }
-
-export interface IROLES {}

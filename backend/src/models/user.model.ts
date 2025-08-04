@@ -32,13 +32,14 @@ const userSchema = new mongoose.Schema<IUser>(
       required: [true, 'Role is required'],
     },
 
-    business: [
+    client: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Business',
+        ref: 'Client',
       },
     ],
 
+    //TODO: add this feature later
     avatar: {
       id: {
         type: String,
