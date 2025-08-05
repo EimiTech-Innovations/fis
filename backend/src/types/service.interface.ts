@@ -4,6 +4,6 @@ import mongoose from 'mongoose';
 export interface IServices extends Document {
   name: string;
   description?: string;
-  plans: mongoose.Types.ObjectId[];
+  plans?: mongoose.Types.ObjectId[];
   isActive: boolean;
 }
