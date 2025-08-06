@@ -11,7 +11,7 @@ import { ApiError } from '../helper/apiError.helper';
  * @returns All Users
  * @ACCESS Private (Admins and user)
  */
-export const me = asyncHandler(
+export const getProfile = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const user = await User.findById(req.user?.user_id);
 

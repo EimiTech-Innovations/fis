@@ -4,6 +4,7 @@ import validate from '../../middleware/validate.middleware';
 import { createService } from '../../controllers/services.controller';
 import { serviceSchema } from '../../validators/service.schema.validator';
 import { authorizeRoles, isLoggedIn } from '../../middleware/auth.middleware';
+import { Role } from '../../types/user.interface';
 const router = Router();
 
 /**
@@ -14,6 +15,7 @@ router
   .post(
     validate(serviceSchema),
     isLoggedIn,
-    authorizeRoles('super-admin'),
+    authorizeRoles(Role.SUPER_ADMIN),
     createService
   );
+export default router;
