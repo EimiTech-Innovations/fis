@@ -4,7 +4,7 @@ import { JwtPayload } from 'jsonwebtoken';
 import { ApiError } from '../helper/apiError.helper';
 
 import jwt from 'jsonwebtoken';
-import { IJwtPayload } from '../types/user.interface';
+import { IJwtPayload, Role } from '../types/user.interface';
 declare module 'express' {
   export interface Request {
     user?: IJwtPayload;
@@ -51,7 +51,7 @@ export const authorizeRoles = (...roles: Role[]) =>
     if (!req.user) {
       return next(new ApiError('Unauthorized, please login', 401));
     }
-    if (!roles.includes(req.user.role)) {
+    if (!roles.length || !roles.includes(req.user.role as Role)) {
       return next(
         new ApiError('You are not authorized to access this route', 403)
       );
