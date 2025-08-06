@@ -13,17 +13,17 @@ declare module 'express' {
 
 export const isLoggedIn = asyncHandler(
   async (req: Request, _res: Response, next: NextFunction) => {
-    let token: string | JwtPayload;
+    let token: string = '';
+
+    // 🍪 Fallback to signed cookie if no token in header
+    if (!token && req.signedCookies?.accessToken) {
+      token = req.signedCookies.accessToken;
+    }
 
     // check for the token availability
-    if (
-      req.headers &&
-      req.headers.authorization &&
-      req.headers.authorization.startsWith('Bearer ')
-    ) {
-      token = req?.headers?.authorization?.split(' ')[1];
-    } else {
-      return next(new ApiError('You are not authorized, please login', 401));
+    const authHeader = req.headers?.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
     }
 
     if (!token) {
@@ -31,10 +31,10 @@ export const isLoggedIn = asyncHandler(
     }
 
     //   decode jwt and store inside the request body (req.user)
-    const decoded = (await jwt.verify(
-      token,
+    const decoded = jwt.verify(
+      token as string,
       process.env.ACCESS_TOKEN_SECRET as string
-    )) as IJwtPayload;
+    ) as unknown as IJwtPayload;
 
     if (!decoded) {
       return next(new ApiError('Unauthorized, please login', 401));
