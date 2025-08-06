@@ -14,10 +14,10 @@ declare module 'express' {
 export const isLoggedIn = asyncHandler(
   async (req: Request, _res: Response, next: NextFunction) => {
     let token: string = '';
+    console.log(req.cookies, 'signed cookie token');
 
-    // 🍪 Fallback to signed cookie if no token in header
-    if (!token && req.signedCookies?.accessToken) {
-      token = req.signedCookies.accessToken;
+    if (!token && req.cookies?.token) {
+      token = req.cookies?.token;
     }
 
     // check for the token availability
