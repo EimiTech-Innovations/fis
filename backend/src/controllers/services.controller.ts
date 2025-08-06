@@ -51,3 +51,26 @@ export const createService = asyncHandler(
     });
   }
 );
+
+/**
+ * @GETALL_SERVICES
+ * @ROUTE @GET {{URL}}/api/v1/services
+ * @returns fetch all services details
+ * @ACCESS Private (super_admin & admin )
+ */
+export const getAllServices = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const services = await Services.find({}).lean();
+
+    if (!services || services.length === 0) {
+      return next(new ApiError('No services found', 404));
+    }
+
+    // Respond with success
+    res.status(200).json({
+      success: true,
+      message: 'Services fetched successfully',
+      services,
+    });
+  }
+);
