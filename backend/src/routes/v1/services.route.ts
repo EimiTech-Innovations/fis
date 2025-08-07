@@ -3,7 +3,12 @@ import validate from '../../middleware/validate.middleware';
 
 import {
   createService,
+  deleteService,
   getAllServices,
+  getServiceById,
+  getServicesByName,
+  getServicesByStatus,
+  updateService,
 } from '../../controllers/services.controller';
 import { serviceSchema } from '../../validators/service.schema.validator';
 import { authorizeRoles, isLoggedIn } from '../../middleware/auth.middleware';
@@ -30,4 +35,30 @@ router
     createService
   );
 
+router
+  .route('/name/:name')
+  .get(
+    isLoggedIn,
+    authorizeRoles(Role.SUPER_ADMIN, Role.ADMIN),
+    getServicesByName
+  );
+
+router
+  .route('/id/:id')
+  .put(
+    validate(serviceSchema),
+    isLoggedIn,
+    authorizeRoles(Role.SUPER_ADMIN),
+    updateService
+  )
+  .get(isLoggedIn, authorizeRoles(Role.SUPER_ADMIN, Role.ADMIN), getServiceById)
+  .delete(isLoggedIn, authorizeRoles(Role.SUPER_ADMIN), deleteService);
+
+router
+  .route('/active/:isActive')
+  .get(
+    isLoggedIn,
+    authorizeRoles(Role.SUPER_ADMIN, Role.ADMIN),
+    getServicesByStatus
+  );
 export default router;

@@ -14,7 +14,6 @@ declare module 'express' {
 export const isLoggedIn = asyncHandler(
   async (req: Request, _res: Response, next: NextFunction) => {
     let token: string = '';
-    console.log(req.cookies, 'signed cookie token');
 
     if (!token && req.cookies?.token) {
       token = req.cookies?.token;
