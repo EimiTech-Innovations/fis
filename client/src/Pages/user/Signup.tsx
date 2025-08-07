@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import fis from "../../assets/fis.svg"
 
-
+// this should be client/services form 
 const Signup: React.FC = () => {
     const [errors, _setError] = useState<boolean>(false)
     const [isLoading, _setIsLoading] = useState<boolean>(false)
