@@ -55,11 +55,13 @@ import authRoutes from './routes/v1/auth.route';
 import userRoutes from './routes/v1/user.route';
 import serviceRoutes from './routes/v1/services.route';
 import planRoutes from './routes/v1/plan.route';
+import clientRoutes from './routes/v1/client.route';
 
 app.use(`/api/${configValues.PREFIX}/auth`, authRoutes);
 app.use(`/api/${configValues.PREFIX}/user`, userRoutes);
 app.use(`/api/${configValues.PREFIX}/service`, serviceRoutes);
 app.use(`/api/${configValues.PREFIX}/plan`, planRoutes);
+app.use(`/api/${configValues.PREFIX}/client`, clientRoutes);
 
 /**
  * @SERVER_ROUTE_NOT_DEFINE

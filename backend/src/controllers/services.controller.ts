@@ -13,7 +13,7 @@
 
 import { NextFunction, Request, Response } from 'express';
 import { asyncHandler } from '../helper/asynchandler.helper';
-import { Services } from '../models/services.model';
+import { Service } from '../models/services.model';
 import { ApiError } from '../helper/apiError.helper';
 
 /**
@@ -27,12 +27,12 @@ export const createService = asyncHandler(
     const { name, description, plans, active } = req.body;
 
     // check if the user already exist
-    const serviceExist = await Services.findOne({ name }).lean();
+    const serviceExist = await Service.findOne({ name }).lean();
     if (serviceExist) {
       return next(new ApiError('Service provided already exist', 400));
     }
 
-    const service = await Services.create({
+    const service = await Service.create({
       name,
       description,
       plans,
@@ -60,7 +60,7 @@ export const createService = asyncHandler(
  */
 export const getAllServices = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const services = await Services.find({}).lean();
+    const services = await Service.find({}).lean();
 
     if (!services || services.length === 0) {
       return next(new ApiError('No services found', 404));
@@ -88,12 +88,12 @@ export const updateService = asyncHandler(
     const { name, description, plans, isActive } = req.body;
 
     // check if the service exist
-    const serviceExist = await Services.findById(id).lean();
+    const serviceExist = await Service.findById(id).lean();
     if (!serviceExist) {
       return next(new ApiError('Service not found', 404));
     }
 
-    const updatedService = await Services.findByIdAndUpdate(
+    const updatedService = await Service.findByIdAndUpdate(
       id,
       { name, description, plans, isActive },
       { new: true }
@@ -122,12 +122,12 @@ export const deleteService = asyncHandler(
     const { id } = req.params;
 
     // check if the service exist
-    const serviceExist = await Services.findById(id).lean();
+    const serviceExist = await Service.findById(id).lean();
     if (!serviceExist) {
       return next(new ApiError('Service not found', 404));
     }
 
-    const deletedService = await Services.findByIdAndDelete(id).lean();
+    const deletedService = await Service.findByIdAndDelete(id).lean();
 
     if (!deletedService) {
       return next(new ApiError('Failed to delete service', 400));
@@ -152,7 +152,7 @@ export const getServiceById = asyncHandler(
     const { id } = req.params;
 
     // check if the service exist
-    const service = await Services.findById(id).lean();
+    const service = await Service.findById(id).lean();
     if (!service) {
       return next(new ApiError('Service not found', 404));
     }
@@ -177,7 +177,7 @@ export const getServicesByName = asyncHandler(
     const { name } = req.params;
 
     // check if the service exist
-    const services = await Services.find({
+    const services = await Service.find({
       name: { $regex: name, $options: 'i' },
     }).lean();
     if (!services || services.length === 0) {
@@ -204,7 +204,7 @@ export const getServicesByStatus = asyncHandler(
     const { isActive } = req.params;
 
     // check if the service exist
-    const services = await Services.find({ isActive: isActive }).lean();
+    const services = await Service.find({ isActive: isActive }).lean();
     if (!services || services.length === 0) {
       return next(
         new ApiError('No services found with the provided status', 404)
