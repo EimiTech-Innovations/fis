@@ -11,6 +11,9 @@ export interface IClient extends mongoose.Document {
   name: string;
   contact: string;
   status: status;
-  serviceId: mongoose.Types.ObjectId;
+  service: mongoose.Types.ObjectId;
   avatar?: IAvatar;
+  startDate?: string;
+  endDate?: string;
+  plan?: mongoose.Types.ObjectId; // Optional field for plan association
 }
