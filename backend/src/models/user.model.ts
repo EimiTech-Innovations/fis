@@ -1,8 +1,10 @@
 import mongoose from 'mongoose';
-import { IUser, Role } from '../types/user.interface';
+import { IUser } from '../types/user.interface';
+import { Role } from '../types/user.interface'; // Ensure Role is exported as a const enum or object
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
+import { string } from 'zod';
 
 const userSchema = new mongoose.Schema<IUser>(
   {
@@ -29,8 +31,8 @@ const userSchema = new mongoose.Schema<IUser>(
     role: {
       type: String,
       enum: Object.values(Role),
-      required: [true, 'Role is required'],
-      default: Role.ADMIN,
+      default: Role.ADMIN, // Default role can be set to ADMIN
+      required: true,
     },
 
     client: [

@@ -11,7 +11,6 @@ const planSchema = new mongoose.Schema<IPlan>({
   },
   description: {
     type: String,
-    trim: true,
     maxLength: [200, 'Description should not be more than 200 characters'],
   },
   price: {
@@ -20,7 +19,6 @@ const planSchema = new mongoose.Schema<IPlan>({
   },
   currency: {
     type: String,
-    required: [true, 'Currency is required'],
   },
   billingCycle: {
     type: String,
@@ -29,7 +27,7 @@ const planSchema = new mongoose.Schema<IPlan>({
   },
   isActive: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   isFree: {
     type: Boolean,
@@ -37,4 +35,4 @@ const planSchema = new mongoose.Schema<IPlan>({
   },
 });
 
-export const plan = mongoose.model<IPlan>('Plan', planSchema);
+export const Plan = mongoose.model<IPlan>('Plan', planSchema);

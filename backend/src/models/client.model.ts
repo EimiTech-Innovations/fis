@@ -28,15 +28,19 @@ const clientSchema = new mongoose.Schema<IClient>(
         type: String,
       },
     },
-    serviceId: {
+    service: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Service',
-      required: [true, 'Service ID is required'],
     },
     status: {
       type: String,
       enum: Object.values(status),
       default: status.INACTIVE,
+    },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: [true, 'Owner is required'],
     },
   },
   {
@@ -44,4 +48,4 @@ const clientSchema = new mongoose.Schema<IClient>(
   }
 );
 
-export const User = mongoose.model<IClient>('Client', clientSchema);
+export const Client = mongoose.model<IClient>('Client', clientSchema);

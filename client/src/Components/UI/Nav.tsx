@@ -1,5 +1,5 @@
 import React from "react";
-import fis from "../../assets/fis.svg";
+import fis from "../../assets/fis.jpeg";
 import { Link } from "react-router-dom";
 
 const Nav: React.FC = () => {

@@ -1,10 +1,5 @@
 import mongoose from 'mongoose';
 
-export enum Role {
-  SUPER_ADMIN = 'SUPER_ADMIN',
-  ADMIN = 'ADMIN',
-}
-
 export type IAvatar = {
   url: string;
   id: string;
@@ -14,7 +9,7 @@ export interface IUser extends Document {
   name: string;
   email: string;
   password: string | undefined;
-  role: Role;
+  role: string;
   client?: mongoose.Types.ObjectId[];
   avatar?: IAvatar;
   resetPasswordToken?: string;
@@ -27,5 +22,10 @@ export interface IUser extends Document {
 // jwt payload type
 export interface IJwtPayload {
   user_id: string;
-  role: number;
+  role: string;
+}
+
+export enum Role {
+  ADMIN = 'admin',
+  SUPER_ADMIN = 'super_admin',
 }

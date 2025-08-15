@@ -4,7 +4,7 @@ import { JwtPayload } from 'jsonwebtoken';
 import { ApiError } from '../helper/apiError.helper';
 
 import jwt from 'jsonwebtoken';
-import { IJwtPayload } from '../types/user.interface';
+import { IJwtPayload, Role } from '../types/user.interface';
 declare module 'express' {
   export interface Request {
     user?: IJwtPayload;
@@ -13,17 +13,16 @@ declare module 'express' {
 
 export const isLoggedIn = asyncHandler(
   async (req: Request, _res: Response, next: NextFunction) => {
-    let token: string | JwtPayload;
+    let token: string = '';
+
+    if (!token && req.cookies?.token) {
+      token = req.cookies?.token;
+    }
 
     // check for the token availability
-    if (
-      req.headers &&
-      req.headers.authorization &&
-      req.headers.authorization.startsWith('Bearer ')
-    ) {
-      token = req?.headers?.authorization?.split(' ')[1];
-    } else {
-      return next(new ApiError('You are not authorized, please login', 401));
+    const authHeader = req.headers?.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
     }
 
     if (!token) {
@@ -31,10 +30,10 @@ export const isLoggedIn = asyncHandler(
     }
 
     //   decode jwt and store inside the request body (req.user)
-    const decoded = (await jwt.verify(
-      token,
+    const decoded = jwt.verify(
+      token as string,
       process.env.ACCESS_TOKEN_SECRET as string
-    )) as IJwtPayload;
+    ) as unknown as IJwtPayload;
 
     if (!decoded) {
       return next(new ApiError('Unauthorized, please login', 401));
@@ -46,14 +45,15 @@ export const isLoggedIn = asyncHandler(
   }
 );
 
-// export const authorizeRoles = (...roles: IROLES) => {
-//   asyncHandler(async (req, _res, next) => {
-//     if (!roles.includes(req.user?.role)) {
-//       return next(
-//         new ApiError('You are not authorized to access this route', 403)
-//       );
-//     }
-
-//     next();
-//   });
-// };
+export const authorizeRoles = (...roles: Role[]) =>
+  asyncHandler(async (req: Request, _res: Response, next: NextFunction) => {
+    if (!req.user) {
+      return next(new ApiError('Unauthorized, please login', 401));
+    }
+    if (!roles.length || !roles.includes(req.user.role as Role)) {
+      return next(
+        new ApiError('You are not authorized to access this route', 403)
+      );
+    }
+    next();
+  });

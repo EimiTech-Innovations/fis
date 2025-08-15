@@ -10,7 +10,7 @@ export interface IPlan extends Mongoose.Document {
   name: string;
   description?: string;
   price: number;
-  currency: string;
+  currency?: string;
   isActive: boolean;
   billingCycle: BillingCycle;
   isFree: boolean;

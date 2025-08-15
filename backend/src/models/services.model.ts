@@ -6,7 +6,7 @@ const servicesSchema = new mongoose.Schema<IServices>({
     type: String,
     trim: true,
     minLength: [4, 'Service name should be atleast 4 characters'],
-    maxLength: [30, 'Service name should be not more than 10 characters'],
+    maxLength: [50, 'Service name should be not more than 10 characters'],
     required: [true, 'service name is required'],
   },
   description: {
@@ -23,8 +23,8 @@ const servicesSchema = new mongoose.Schema<IServices>({
   ],
   isActive: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 
-export const services = mongoose.model<IServices>('services', servicesSchema);
+export const Service = mongoose.model<IServices>('Service', servicesSchema);

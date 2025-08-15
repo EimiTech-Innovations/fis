@@ -1,18 +1,18 @@
 import mongoose from 'mongoose';
 import { IClientServices } from '../types/clientServices.interfaces';
 
-const servicesSchema = new mongoose.Schema<IClientServices>({
-  clientId: {
+const clientServiceSchema = new mongoose.Schema<IClientServices>({
+  client: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Client',
     required: [true, 'Client ID is required'],
   },
-  serviceId: {
+  service: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Service',
     required: [true, 'Service ID is required'],
   },
-  planId: {
+  plan: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Plan',
     required: [true, 'Plan ID is required'],
@@ -31,5 +31,5 @@ const servicesSchema = new mongoose.Schema<IClientServices>({
 });
 export const clientServices = mongoose.model<IClientServices>(
   'clientServices',
-  servicesSchema
+  clientServiceSchema
 );

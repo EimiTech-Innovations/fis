@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import dbConnect from './config/db';
 import { configValues } from './config';
 import errorMiddleware from './middleware/error.middleware';
+import cookieParser from 'cookie-parser';
 
 //connect to the db
 dbConnect();
@@ -19,6 +20,7 @@ morgan.format(
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser(process.env.ACCESS_TOKEN_SECRET));
 // Use the custom format
 app.use(morgan('myCustomFormat'));
 
@@ -51,9 +53,15 @@ app.get(`/api/${configValues.PREFIX}/mode`, (_req, res) => {
 // routes
 import authRoutes from './routes/v1/auth.route';
 import userRoutes from './routes/v1/user.route';
+import serviceRoutes from './routes/v1/services.route';
+import planRoutes from './routes/v1/plan.route';
+import clientRoutes from './routes/v1/client.route';
 
 app.use(`/api/${configValues.PREFIX}/auth`, authRoutes);
 app.use(`/api/${configValues.PREFIX}/user`, userRoutes);
+app.use(`/api/${configValues.PREFIX}/service`, serviceRoutes);
+app.use(`/api/${configValues.PREFIX}/plan`, planRoutes);
+app.use(`/api/${configValues.PREFIX}/client`, clientRoutes);
 
 /**
  * @SERVER_ROUTE_NOT_DEFINE
