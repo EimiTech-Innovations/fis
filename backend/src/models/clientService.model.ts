@@ -12,10 +12,10 @@ const clientServiceSchema = new mongoose.Schema<IClientServices>({
     ref: 'Service',
     required: [true, 'Service ID is required'],
   },
+  // TODO: later we can allow multiple plans for a client
   plan: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Plan',
-    required: [true, 'Plan ID is required'],
   },
   isEnable: {
     type: Boolean,
@@ -29,7 +29,7 @@ const clientServiceSchema = new mongoose.Schema<IClientServices>({
     type: Date,
   },
 });
-export const clientServices = mongoose.model<IClientServices>(
-  'clientServices',
+export const ClientService = mongoose.model<IClientServices>(
+  'ClientService',
   clientServiceSchema
 );
