@@ -4,7 +4,6 @@ import { Role } from '../types/user.interface'; // Ensure Role is exported as a 
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-import { string } from 'zod';
 
 const userSchema = new mongoose.Schema<IUser>(
   {
