@@ -1,13 +1,10 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import dbConnect from './config/db';
+
 import { configValues } from './config';
 import errorMiddleware from './middleware/error.middleware';
 import cookieParser from 'cookie-parser';
-
-//connect to the db
-dbConnect();
 
 const app: Application = express();
 

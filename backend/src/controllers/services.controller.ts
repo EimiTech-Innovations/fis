@@ -42,6 +42,7 @@ export const createService = asyncHandler(
     if (!service) {
       return next(new ApiError('failed to create service', 400));
     }
+    console.log('now');
 
     // Respond with success
     res.status(201).json({
@@ -62,15 +63,14 @@ export const getAllServices = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const services = await Service.find({}).lean();
 
-    if (!services || services.length === 0) {
+    if (!services) {
       return next(new ApiError('No services found', 404));
     }
 
-    // Respond with success
     res.status(200).json({
       success: true,
       message: 'Services fetched successfully',
-      services,
+      services: services ? services : [],
     });
   }
 );
