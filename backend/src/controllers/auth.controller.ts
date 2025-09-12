@@ -27,7 +27,6 @@ export const registerUser = asyncHandler(
       name,
       email,
       password,
-      role: 'ADMIN',
       avatar: {
         id: email,
         avatarUrl:

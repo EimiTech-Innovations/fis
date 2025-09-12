@@ -4,19 +4,15 @@ import { configValues } from './index';
 const dbConnect = async (): Promise<void> => {
   mongoose.set('strictQuery', true);
 
-  // Establish connection
-  await mongoose
-    .connect(configValues.DB_URL)
-    .then(() => {
-      console.log(`Connected to database`);
-    })
-    .catch((e) => {
-      // TODO: 1 log to one custom error
-      console.log('Mongoose connection error');
-      console.error(e);
-    });
+  try {
+    await mongoose.connect(configValues.DB_URL);
+    console.log(`Connected to database`);
+  } catch (e) {
+    console.log('Mongoose connection error');
+    console.error(e);
+    throw e; // <-- This is important!
+  }
 
-  //  connection check
   mongoose.connection.on('connected', () => {
     console.log('Mongoose default connection open to ' + configValues.DB_URL);
   });
@@ -29,7 +25,8 @@ const dbConnect = async (): Promise<void> => {
     console.log('Mongoose default connection disconnected');
   });
 
-  process.on('SIGINT', () => {
+  process.on('SIGINT', async () => {
+    await mongoose.disconnect();
     process.exit(0);
   });
 };
