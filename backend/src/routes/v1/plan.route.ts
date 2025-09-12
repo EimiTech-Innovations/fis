@@ -4,6 +4,7 @@ import { Role } from '../../types/user.interface';
 import {
   createPlan,
   deletePlan,
+  getPlanById,
   getPlans,
   updatePlan,
 } from '../../controllers/plan.controller';
@@ -24,9 +25,12 @@ router
     authorizeRoles(Role.SUPER_ADMIN),
     createPlan
   );
-
+router
+  .route('/all')
+  .get(isLoggedIn, authorizeRoles(Role.SUPER_ADMIN, Role.ADMIN), getPlans);
 router
   .route('/:id')
+  .get(isLoggedIn, authorizeRoles(Role.ADMIN, Role.SUPER_ADMIN), getPlanById)
   .post(
     validate(planSchema),
     isLoggedIn,
@@ -34,9 +38,5 @@ router
     updatePlan
   )
   .delete(isLoggedIn, authorizeRoles(Role.SUPER_ADMIN), deletePlan);
-
-router
-  .route('/all')
-  .get(isLoggedIn, authorizeRoles(Role.SUPER_ADMIN, Role.ADMIN), getPlans);
 
 export default router;

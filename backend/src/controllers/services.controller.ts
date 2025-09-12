@@ -15,6 +15,7 @@ import { NextFunction, Request, Response } from 'express';
 import { asyncHandler } from '../helper/asynchandler.helper';
 import { Service } from '../models/services.model';
 import { ApiError } from '../helper/apiError.helper';
+import { Plan } from '../models/plan.model';
 
 /**
  * @CREATE_SERVICE
@@ -26,10 +27,24 @@ export const createService = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const { name, description, plans, active } = req.body;
 
-    // check if the user already exist
+    // check if the service already exists
     const serviceExist = await Service.findOne({ name }).lean();
     if (serviceExist) {
       return next(new ApiError('Service provided already exist', 400));
+    }
+
+    // ensure plans is provided and is a non-empty array
+    if (!plans || !Array.isArray(plans) || plans.length === 0) {
+      return next(
+        new ApiError('Plans must be provided and cannot be empty', 400)
+      );
+    }
+
+    // TODO: this can be improve later
+    // Ensure all plans exist in the database
+    const foundPlans = await Plan.find({ _id: { $in: plans } }).lean();
+    if (foundPlans.length !== plans.length) {
+      return next(new ApiError('One or more provided plans are invalid', 400));
     }
 
     const service = await Service.create({
@@ -42,7 +57,6 @@ export const createService = asyncHandler(
     if (!service) {
       return next(new ApiError('failed to create service', 400));
     }
-    console.log('now');
 
     // Respond with success
     res.status(201).json({

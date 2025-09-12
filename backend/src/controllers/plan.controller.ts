@@ -136,6 +136,26 @@ export const getPlans = asyncHandler(
 );
 
 /**
+ * @getPlanById
+ * @ROUTE @get {{URL}}/api/v1/plan/:id
+ * @desc get a plan by ID
+ * @returns plan data
+ * @ACCESS Private (admin, super_admin)
+ */
+export const getPlanById = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+
+    const plan = await Plan.findById(id);
+
+    if (!plan) {
+      return next(new ApiError('Plan not found', 404));
+    }
+    res.status(200).json({ message: 'Plan retrieved successfully', plan });
+  }
+);
+
+/**
  * @deletePlan
  * @ROUTE @DELETE {{URL}}/api/v1/plan/:id
  * @desc delete a plan by ID
